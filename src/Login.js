@@ -23,8 +23,13 @@ handleChange () {
     return(
         <div className="loginWrapper">
 
-<div className="welcome">
-                <div className="welcome-wrapper">
+                <div className="loginImg"></div>
+
+                <div className="welcome">
+                                <div className="welcome-wrapper">
+
+                
+
                     <span>
                         <h2>Welcome on board!</h2>
                         <p>To enjoy your learning journey, please log in:</p>
@@ -59,16 +64,24 @@ handleChange () {
                             name="id"
                             onChange={this.handleChange}
                             />
-                        {/* <p className="landing-page-input-label">Any troubles? Let us <a href=""> help you</a></p> */}
+                        <p className="landing-page-small">Any troubles? Let us <a href=""> help you</a></p>
 
                         <span 
                             toggle="#password-field" 
                             className="fa fa-fw fa-eye toggle-password">
                         </span>
                         </div>
+
+                        <input 
+                            type="checkbox"
+                            name="keepSignedIn"
+                         /><span className="landing-page-small">Keep me signed in</span> 
+
                         <div className="button-wrapper">
                             <Link to="/welcome"><button>Sign in</button></Link>
                         </div>
+
+                        
 
 
                     </form>

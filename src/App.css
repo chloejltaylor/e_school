@@ -1,3 +1,21 @@
+@font-face {
+    font-family: 'Gothic';
+    src: local('Fonts'), url('./assets/Fonts/GOTHIC.TTF') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'GothicBold';
+    src: local('Fonts'), url('./assets/Fonts/GOTHICB.TTF') format('truetype');
+  }
+
+body {
+    font-family: 'Gothic';
+}
+
+h1, h2, h3 {
+    font-family: 'GothicBold';
+}
+
 header {
     height: 100vh;
     background-color: darkcyan;
@@ -5,4 +23,9 @@ header {
     display: grid;
     align-items: center;
     justify-content: center;
+    text-align: center;
+}
+
+header a {
+    color: white;
 }
