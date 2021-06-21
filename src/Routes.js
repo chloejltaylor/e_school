@@ -1,7 +1,8 @@
 import React from 'react'
 import { Switch, Route} from 'react-router-dom'
 import Login from './Login'
-import Welcome from './Welcome'
+import Welcome from './pages/Welcome'
+import SignUp from './pages/SignUp'
 
 function Routes() {
     return(
@@ -16,6 +17,12 @@ function Routes() {
             <Switch>
                 <Route path="/Welcome">
                 <Welcome />
+                </Route>
+            </Switch>
+
+            <Switch>
+                <Route path="/SignUp">
+                <SignUp />
                 </Route>
             </Switch>
 

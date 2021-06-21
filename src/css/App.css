@@ -1,11 +1,16 @@
 @font-face {
     font-family: 'Gothic';
-    src: local('Fonts'), url('./assets/Fonts/GOTHIC.TTF') format('truetype');
+    src: local('Fonts'), url('../assets/Fonts/GOTHIC.TTF') format('truetype');
   }
 
   @font-face {
     font-family: 'GothicBold';
-    src: local('Fonts'), url('./assets/Fonts/GOTHICB.TTF') format('truetype');
+    src: local('Fonts'), url('../assets/Fonts/GOTHICB.TTF') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Gloria';
+    src: local('Fonts'), url('../assets/Fonts/GloriaHallelujah-Regular.ttf') format('truetype');
   }
 
 body {
@@ -28,4 +33,10 @@ header {
 
 header a {
     color: white;
+}
+
+.loading-temp {
+    text-align: center;
+    padding: 100px;
+    color: darkcyan;
 }
