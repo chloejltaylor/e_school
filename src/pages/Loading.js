@@ -28,12 +28,15 @@ function Loading() {
   }, []);
 
   return(
-    <div className="loading">
-      <div className="loading-text">Just a sec, we are signing you in...</div>
-      <div className={ `loading-background loading-background-${blobStage}` }>
-        <div className="loading-elements" />
+    <>
+      <div className="loading">
+        <div className="loading-text">Just a sec, we are signing you in...</div>
+        <div className={ `loading-background loading-background-${blobStage}` }>
+          <div className="loading-elements" />
+        </div>
       </div>
-    </div>
+      <div className="loading-bottom" />
+    </>
   )
 }
 
