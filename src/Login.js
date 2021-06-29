@@ -7,20 +7,17 @@ class Login extends React.Component{
     constructor(){
         super()
         this.state={
-            username:"",
+            username: "",
             id:""
         }
 
-        this.handleChange = this.handleChange.bind(this)
+  
+
     }
 
-
-
-handleChange () {
-    console.log("working")
-}
-
     render(){
+
+        
 
     return(
         <div className="loginWrapper">
@@ -29,11 +26,13 @@ handleChange () {
 
                 <div className="welcome">
                     <div className="welcome-wrapper">
+                    <br className="login-spacer"/>
+                    <br className="login-spacer"/>
                         <span>
                             <h2>Welcome on <hr className="strike-through-up"/><hr className="strike-through-down"/><span>board!</span></h2><span className="to-school">to our school</span>
                             <p>To enjoy your learning journey, please log in:</p>
                         </span>
-
+                        <br className="login-spacer"/>
                         <span 
                                 toggle="#password-field" 
                                 className="fa fa-fw fa-eye toggle-password">
@@ -47,7 +46,6 @@ handleChange () {
                                 type="text" 
                                 placeholder="user@school.com"
                                 name="username"
-                                onChange={this.handleChange}
                             />
                         </div>
 
@@ -58,7 +56,6 @@ handleChange () {
                                 id="password-field"
                                 type="password"
                                 name="id"
-                                onChange={this.handleChange}
                                 />
                             <p className="landing-page-small">Any troubles? Let us <a href=""> help you</a></p>
 
@@ -67,26 +64,29 @@ handleChange () {
                                 className="fa fa-fw fa-eye toggle-password">
                             </span>
                         </div>
-
+                        <div className="login-checkboxWrapper">
                         <input 
                             type="checkbox"
                             name="keepSignedIn"
                          /><span className="landing-page-small">Keep me signed in</span> 
+                         </div>
+
+                         <br className="login-spacer"/>
 
                         <div className="button-wrapper">
                             <Link to="/welcome"><button>Sign in</button></Link>
                         </div>
-
-                        
-
-
                     </form>
                 
                 </div>
 
         </div>
         )
+
     }
+
+
 }
+
 
 export default Login

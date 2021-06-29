@@ -8,14 +8,15 @@ class Welcome extends React.Component{
         super()
         this.state={
             isLoading: true,
-            name: "Erica"
+            username: ""
         }
     }
 
     componentDidMount() {
         setTimeout(() => {
             this.setState({
-                isLoading: false
+                isLoading: false,
+                username: "Erik"
             })
         }, 2500)
     }
@@ -29,7 +30,7 @@ class Welcome extends React.Component{
             {this.state.isLoading ?
                 <Loading /> :
                 <header>
-                <h1>Welcome, {this.state.name} </h1>
+                <h1>Welcome, {this.state.username} </h1>
                 <Link to="/"><p>Back</p></Link>
             </header>}
 
