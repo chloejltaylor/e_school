@@ -5,8 +5,9 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    justify-content: left;
-    justify-items: left;
+    /* justify-content: center; */
+    justify-items: center;
+
   }
 
 
@@ -27,7 +28,7 @@
   }
 
 .loginImg {
-width: 550px;
+width: 100%;
 height: 100vh;
 background: url(../assets/Images/login-pic.jpg);
 background-size: cover;
@@ -71,6 +72,7 @@ filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.25))
   align-items: center;
 }
 
+
 .welcome-wrapper h2 {
   font-size: 36px;
   display: inline;
@@ -109,6 +111,10 @@ button:active {
   background: rgba(44, 19, 32, 0.8);
 }
 
+button:hover {
+  background: rgba(44, 19, 32, 0.7);
+}
+
 button:disabled,
 button[disabled]{
   background: rgba(44, 19, 32, 0.4);
@@ -138,7 +144,8 @@ button[disabled]{
   font-family:'Gloria', sans-serif;
   font-size: 36px;
   position: absolute;
-  transform: translate(-160px, -60px) rotate(12deg) ;
+  transform: translate(-200px, -60px) rotate(12deg) ;
+  min-width: 300px;
 }
 
 /* narrow width to fit on phones  */
@@ -159,7 +166,7 @@ input[type=checkbox] {
   outline: 0;
 }
 input[type=checkbox]:checked {
-  background-image: url(../assets/Images/checkboxchecked.svg);
+  background-image: url(../assets/Images/checkbox-checked.svg);
   width: 22px;
 }
 input[type=checkbox]:not(:checked) {
@@ -176,4 +183,9 @@ input[type=checkbox][disabled]{
 .loginWrapper input[type=text], .loginWrapper input[type=password], .loginWrapper input::placeholder {
   font-size: 18px;
   padding: 7px;
+}
+
+.landing-page-input-area input:focus{
+  outline: none;
+  border: 3px solid;
 }
