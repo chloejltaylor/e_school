@@ -74,7 +74,7 @@ class Login extends React.Component{
                          <br className="login-spacer"/>
 
                         <div className="button-wrapper">
-                            <Link to="/e_school"><button>Sign in</button></Link>
+                            <Link to="/welcome"><button>Sign in</button></Link>
                         </div>
                     </form>
                 
