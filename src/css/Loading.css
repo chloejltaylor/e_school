@@ -1,0 +1,60 @@
+.loading {
+  margin: 0 auto;
+  max-height: 1000px;
+  overflow: hidden;
+  transform: scale(0.6);
+  margin-top: -200px;
+  margin-bottom: -250px;
+}
+.loading-text {
+  height: 40px;
+  padding-top: 80px;
+  text-align: center;
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size: 36px;
+  position: relative;
+  z-index: 2;
+}
+.loading-background {
+  position: relative;
+  z-index: 1;
+  margin: 0 auto;
+  margin-top: -150px;
+  height: 1000px;
+  width: 1000px;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-background-1 {
+  background-image: url("../assets/Images/loading/blob1.svg");
+}
+.loading-background-2 {
+  background-image: url("../assets/Images/loading/blob2.svg");
+}
+.loading-background-3 {
+  background-image: url("../assets/Images/loading/blob3.svg");
+}
+.loading-background-4 {
+  background-image: url("../assets/Images/loading/blob4.svg");
+}
+.loading-background-5 {
+  background-image: url("../assets/Images/loading/blob5.svg");
+}
+.loading-background-6 {
+  background-image: url("../assets/Images/loading/blob6.svg");
+}
+.loading-elements {
+  height: 523px;
+  width: 523px;
+  background-image: url("../assets/Images/loading/loading-elements.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.loading-bottom {
+  width: 100%;
+  height: 1px;
+}

@@ -18,7 +18,7 @@ class Welcome extends React.Component{
                 isLoading: false,
                 username: "Erik"
             })
-        }, 2500)
+        }, 5000)
     }
 
 

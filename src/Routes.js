@@ -1,32 +1,30 @@
 import React from 'react'
-import { Switch, Route} from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 import Login from './Login'
 import Home from './pages/Home'
 import SignUp from './pages/SignUp'
+import NotFound from './pages/NotFound'
 
 function Routes() {
     return(
         <div>
-
-      
-            <Switch>
-                <Route path="/e_school">
-                <Home />
-                </Route>
-            </Switch>
-
-            <Switch>
-                <Route path="/SignUp">
-                <SignUp />
-                </Route>
-            </Switch>
-
             <Switch>
                 <Route exact path="/">
-                <Login />
+                  <Redirect to="/login" />
+                </Route>
+                <Route exact path="/login">
+                  <Login />
+                </Route>
+                <Route exact path="/welcome">
+                  <Welcome />
+                </Route>
+                <Route exact path="/signup">
+                  <SignUp />
+                </Route>
+                <Route>
+                  <NotFound />
                 </Route>
             </Switch>
-
         </div>
     )
 }
