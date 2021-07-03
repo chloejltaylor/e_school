@@ -1,6 +1,8 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Schedule from './Schedule'
 import Loading from './Loading'
+import Navbar from '../components/Navbar'
+import '../css/nav.css'
 
 class Welcome extends React.Component{
 
@@ -29,10 +31,10 @@ class Welcome extends React.Component{
 
             {this.state.isLoading ?
                 <Loading /> :
-                <header>
-                <h1>Welcome, {this.state.username} </h1>
-                <Link to="/"><p>Back</p></Link>
-            </header>}
+                <>
+                <Navbar/>
+                <Schedule />
+                </>}
 
 
             </div>

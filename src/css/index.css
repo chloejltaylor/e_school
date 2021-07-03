@@ -8,3 +8,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+:root {
+  --darkpurple: #2C1320;
+  --beige: papayawhip;
+  --red: #EB5E55;
+}
+
