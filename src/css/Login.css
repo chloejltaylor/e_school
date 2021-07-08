@@ -1,17 +1,13 @@
-
-
 .loginWrapper {
 
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    /* justify-content: center; */
     justify-items: center;
 
   }
 
-
-  
+ 
 .button-wrapper {
   text-align: center;
 }
@@ -30,7 +26,7 @@
 .loginImg {
 width: 100%;
 height: 100vh;
-background: url(../assets/Images/login-pic.jpg);
+background: url(../assets/Images/login/login-pic.jpg);
 background-size: cover;
 opacity: .6;
 filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.25))
@@ -73,7 +69,7 @@ filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.25))
 }
 
 
-.welcome-wrapper h2 {
+.welcome-text  {
   font-size: 36px;
   display: inline;
 }
@@ -96,7 +92,7 @@ button {
 
 width: 320px;
 height: 51px;
-margin: 30px;
+margin: 30px 0;
 background: #2C1320;
 /* border: 1px solid rgba(54, 26, 77, 0.5); */
 box-sizing: border-box;
@@ -148,12 +144,41 @@ button[disabled]{
   min-width: 300px;
 }
 
+.show-hide {
+  position: absolute;
+  transform: translate(-30px, 15px);
+  width: 50px;
+  height:20px;
+  /* background-image: url("../assets/Images/login/NotSeePassword-2.png"); */
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+}
+
 /* narrow width to fit on phones  */
 
 @media screen and (max-width: 600px)  {
   .landing-page-input-field {
-    width: 400px;
+    width: 300px;
   }
+
+  .to-school {
+    font-size: 24px;
+    position: absolute;
+  }
+
+  .welcome-text {
+    font-size: 28px;
+  }
+
+  .strike-through-up, .strike-through-down {
+    width:110px;
+  }
+
+  .welcome form {
+    padding: 5px;
+  }
+
 }
 
 input[type=checkbox] {
@@ -166,16 +191,16 @@ input[type=checkbox] {
   outline: 0;
 }
 input[type=checkbox]:checked {
-  background-image: url(../assets/Images/checkbox-checked.svg);
+  background-image: url(../assets/Images/login/checkbox-checked.svg);
   width: 22px;
 }
 input[type=checkbox]:not(:checked) {
-  background-image: url(../assets//Images//checkbox.svg);
+  background-image: url(../assets/Images/login/checkbox.svg);
   width: 22px;
 }
 
 input[type=checkbox][disabled]{
-  background-image: url(../assets//Images//checkboxdisabled.svg);
+  background-image: url(../assets//Images//login/checkboxdisabled.svg);
   width: 22px;
 }
 
