@@ -1,7 +1,26 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {Link, useParams } from 'react-router-dom'
 
 function Navbar () {
+
+  const { page } = useParams();
+
+  const HeaderLink = ({ page, selected }) => {
+    const title = page
+  
+    return (
+     
+      <li className= { selected ? 'nav-item-active' : 'nav-item'}>
+        <Link
+          to={`/${page}`}
+          className>
+          {title}
+        </Link>
+        
+      </li>
+
+      );
+  };
 
 
         return (
@@ -13,7 +32,12 @@ function Navbar () {
 
     
                 <ul className="nav-list">
-                    <Link to= {"/schedule"}>
+                  <HeaderLink  page="Schedule" selected={page === 'Schedule'} />
+                  <HeaderLink  page="Library" selected={page === 'Library'} />
+
+
+
+                    {/* <Link to= {"/schedule"}>
                     <li className="nav-item ">
                     <span className="nav-link">Schedule</span>
                   </li>
@@ -22,7 +46,7 @@ function Navbar () {
                     <li className="nav-item ">
                     <span className="nav-link">Library</span>
                   </li>
-                  </Link>
+                  </Link> */}
  
                   <li className="nav-item ">
                     <span className="nav-link">Page 3</span>

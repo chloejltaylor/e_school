@@ -12,6 +12,9 @@ function Routes() {
     return(
         <div>
             <Switch>
+
+                
+
                 <Route exact path="/">
                   <Redirect to="/login" />
                 </Route>
@@ -25,7 +28,7 @@ function Routes() {
                   <SignUp />
                 </Route>
                 <div>
-                  <Navbar/>
+                <Route exact path='/:page' component={Navbar} />
                 <Route exact path='/library'component={Library} />
                 <Route exact path='/schedule' component={Schedule} />
                 </div>

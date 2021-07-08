@@ -18,6 +18,15 @@ main {
     background-color: var(--beige);
     border: 1px solid var(--red);
     padding: 10px;
+    font-size: small;
+}
+
+.nav-item-active {
+
+    background-color: var(--red);
+    border: 1px solid var(--red);
+    padding: 10px;
+    font-size: small;
 }
 
 
@@ -28,10 +37,6 @@ main {
     color: white;
     text-align: center;
     padding: 40px;
-}
-
-.nav-link {
-    font-size: small;
 }
 
 #navbar {
@@ -45,30 +50,19 @@ main {
 
 .nav-list {
     display: grid;
-    position: fixed;
+    position: static;
     top: 0;
     left:0;
     width: 95vw;
-    margin-top: 110px;
+    margin-top: 0;
+    grid-template-columns: repeat(6,16%);
     list-style: none;
+    padding: 0;
     justify-items: center;
     justify-content: center;
     align-items: center;
     grid-auto-rows: 50px;
-    padding: 0 0 30px 0;
-    display:none;
 }
-
-.nav-list {
-    display: grid;
-    margin-top: 0;
-    position: static;
-    grid-template-columns: repeat(6,16%);
-    list-style: none;
-    padding: 0;
-
-}
-
 
 
 /* tablets and computers */
@@ -76,27 +70,14 @@ main {
 @media screen and (min-width: 678px) {
 
 
-    .nav-list {
-        margin: 0;
-    }
 
     .nav-link {
         font-size: large;
     }
 
-
-    .nav-list {
-        display: grid;
-        margin-top: 0;
-        position: static;
-        grid-template-columns: repeat(6,16%);
-        list-style: none;
-        padding: 0;
-
-    }
-
     .nav-item {
         padding: 30px;
+        font-size: large;
     }
 
 }
@@ -105,4 +86,12 @@ main {
     text-align: center;
     margin-top: 200px;
 }
+
+.nav-link-active {
+    background-color: red;
+}  
+
+.nav-link-inactive {
+    background-color: pink;
+}  
 
