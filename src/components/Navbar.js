@@ -35,19 +35,6 @@ function Navbar () {
                   <HeaderLink  page="Schedule" selected={page === 'Schedule'} />
                   <HeaderLink  page="Library" selected={page === 'Library'} />
 
-
-
-                    {/* <Link to= {"/schedule"}>
-                    <li className="nav-item ">
-                    <span className="nav-link">Schedule</span>
-                  </li>
-                    </Link>
-                    <Link to ="/library">
-                    <li className="nav-item ">
-                    <span className="nav-link">Library</span>
-                  </li>
-                  </Link> */}
- 
                   <li className="nav-item ">
                     <span className="nav-link">Page 3</span>
                   </li>

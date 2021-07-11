@@ -1,0 +1,148 @@
+#schedule-page {
+    margin: 100px 70px 0;
+    height: 70vh;
+    background-color: var(--darkpurple);
+    color: var(--beige);
+    font-size: .9rem;
+}
+
+#schedule-wrapper {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 5% 18% 18% 18% 18% 18% 5%;
+    grid-template-rows: 10% repeat(7,15%);
+    grid-template-areas: 
+        "blank mon-date tue-date wed-date thurs-date fri-date arrows"
+        "schedule-times-8 timetable timetable timetable timetable timetable xx"
+        "schedule-times-9 timetable timetable timetable timetable timetable xx"
+        "schedule-times-10 timetable timetable timetable timetable timetable xx"
+        "schedule-times-11 timetable timetable timetable timetable timetable xx"
+        "schedule-times-12 timetable timetable timetable timetable timetable xx"
+        "schedule-times-13 timetable timetable timetable timetable timetable xx"
+}
+
+.schedule-arrows {
+    align-self: end;
+    grid-area: arrows;
+    cursor: pointer;
+}
+
+.schedule-arrow {
+    padding: 0 3px;
+}
+
+.last-week {
+    /* background-image: url("../assets/Images/schedule/arrow-left.png"); */
+    height: 50px;
+    width: 50px;
+}
+
+.schedule-blank {
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.schedule-times {
+    justify-self: end;
+    padding-right: 5px;
+    border-right: 1px solid black;
+
+}
+
+.schedule-date {
+    text-align: center;
+    border-bottom: 1px solid black;
+    align-self: end;
+}
+
+.mon-date {
+    grid-area: mon-date;
+
+}
+
+.tue-date {
+    grid-area: tue-date;
+}
+
+.wed-date {
+    grid-area: wed-date;
+}
+
+.thurs-date {
+    grid-area: thurs-date;
+}
+
+.fri-date {
+    grid-area: fri-date;
+}
+
+.schedule-times-8 {
+    grid-area: schedule-times-8;
+    
+}
+
+.schedule-times-9 {
+    grid-area: schedule-times-9;
+}
+
+.schedule-times-10 {
+    grid-area: schedule-times-10;
+}
+
+.schedule-times-11 {
+    grid-area: schedule-times-11;
+}
+
+.schedule-times-12 {
+    grid-area: schedule-times-12;
+}
+
+.schedule-times-13 {
+    grid-area: schedule-times-13;
+}
+
+
+#timetable-wrapper {
+    grid-area: timetable;
+    display: grid;
+    height: 100%;
+    width: 100%;
+    grid-template-columns: repeat(5, 20%);
+    grid-template-rows: 100%;
+
+}
+
+
+
+@media screen and (max-width: 678px) {
+    .schedule-times, .schedule-date {
+        font-size: small;
+    }
+}
+
+.timetable-item {
+    background-color: seashell;
+    color: #2C1320;
+    border-radius: 5%;
+    padding: 0 0 0 4%;
+    margin: 5px 15px;
+}
+
+.timetable-item p {
+    font-size: .7em;
+    line-height: .9;
+}
+
+.timetable-item-wrapper {
+    border-left: 4px solid green;
+    padding-left: 4%;
+}
+
+.timetable-today {
+    background-color: crimson;
+}
+
+.timetable-day {
+    display: grid;
+    grid-template-rows: repeat(6, 16.6%);
+}
