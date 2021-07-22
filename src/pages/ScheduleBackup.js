@@ -1,15 +1,15 @@
 import React, { useState, useEffect} from 'react'
 import TimetableSlot from '../components/schedule/TimetableSlot'
 import '../css/schedule.css'
+// import timetableData from '../data/timetableDataRandom'
 import timetableData from '../data/timetableDataLarge'
 import arrowLeft from '../assets/Images/schedule/arrow-left.svg'
 import arrowRight from '../assets/Images/schedule/arrow-right.svg'
 
 function Schedule() {
 
-
-   // initialise today's daye
-    let today = new Date(2021, 6, 22)
+    // initialise today's daye
+    let today = new Date(2021, 6, 20)
     // initialise the Monday that starts this week
     const thisMonday = new Date()
     // 0=sunday to 6=saturday
@@ -27,7 +27,7 @@ function Schedule() {
     // const displayMonday = thisMonday
 
     const [displayMonday, setDisplayMonday]= useState(thisMonday)
-
+    
     // set the display
     const weekdays =[]
     for(let i=0; i<5; i++){
@@ -60,7 +60,9 @@ function Schedule() {
     function HandleLeftArrow(){
         setCountWeek(countWeek-1)
         displayMonday.setDate(displayMonday.getDate()-7)
-
+        console.log("displayMonday: "+displayMonday)
+        console.log("thisMonday: "+thisMonday)
+        console.log("today.getDay(): "+today.getDay())
     }
 
     const mondayTimetable = timetableData.map(sortMondayLessons)
@@ -145,7 +147,7 @@ function Schedule() {
 
                         
                         <div 
-                        className={`mon-date schedule-date ${today.getDay()=== 1 && thisMonday.toDateString()===displayMonday.toDateString() ? "timetable-today-top" : ""}`}
+                        className={`mon-date schedule-date ${today.getDay()=== 1 && thisMonday===displayMonday ? "timetable-today-top" : ""}`}
                         >
                             <div className="schedule-title">
                                 <span>MON</span>
@@ -154,7 +156,7 @@ function Schedule() {
                                 
                          </div>
                          <div
-                          className={`tue-date schedule-date ${today.getDay()=== 2 && thisMonday.toDateString()===displayMonday.toDateString() ? "timetable-today-top" : ""}`}
+                          className={`tue-date schedule-date ${today.getDay()=== 2 && thisMonday===displayMonday ? "timetable-today-top" : ""}`}
                           >
                             <div className="schedule-title">
                                 <span>TUE</span>
@@ -162,7 +164,7 @@ function Schedule() {
                             </div>
                          </div>
                          <div
-                          className={`wed-date schedule-date ${today.getDay()=== 3 && thisMonday.toDateString()===displayMonday.toDateString() ? "timetable-today-top" : ""}`}
+                          className={`wed-date schedule-date ${today.getDay()=== 3 && thisMonday===displayMonday? "timetable-today-top" : ""}`}
                           >
                             <div className="schedule-title">
                                 <span>WED</span>
@@ -170,7 +172,7 @@ function Schedule() {
                             </div>
                         </div>
                         <div 
-                        className={`thurs-date schedule-date ${today.getDay()=== 4 && thisMonday.toDateString()===displayMonday.toDateString() ? "timetable-today-top" : ""}`}
+                        className={`thurs-date schedule-date ${today.getDay()=== 4 && thisMonday===displayMonday ? "timetable-today-top" : ""}`}
                         >
                             <div className="schedule-title">
                                 <span>THU</span>
@@ -178,7 +180,7 @@ function Schedule() {
                             </div>
                         </div>
                         <div 
-                        className={`fri-date schedule-date ${today.getDay()=== 5  && thisMonday.toDateString()===displayMonday.toDateString() ? "timetable-today-top" : ""}`}
+                        className={`fri-date schedule-date ${today.getDay()=== 5  && thisMonday===displayMonday ? "timetable-today-top" : ""}`}
                         >
                             <div className="schedule-title">
                                 <span>FRI</span>
@@ -187,23 +189,26 @@ function Schedule() {
                         </div>
 
                         <div id="timetable-wrapper">
-                         <div className= {` timetable-day timetable-mon ${today.getDay() === 1 && thisMonday.toDateString()===displayMonday.toDateString() ? "timetable-today" : ""} `} >
+                         <div className= {` timetable-day timetable-mon ${today.getDay() === 1 && thisMonday===displayMonday ? "timetable-today" : ""} `} >
                              {mondayTimetable}
                         </div>
 
-                        <div className= {` timetable-day timetable-tue ${today.getDay() === 2 && thisMonday.toDateString()===displayMonday.toDateString() ? "timetable-today" : ""} `} >
+
+                        <div className= {` timetable-day timetable-tue ${today.getDay() === 2 && thisMonday===displayMonday ? "timetable-today" : ""} `} >
                              {tuesdayTimetable}
                         </div>
 
 
-
-                        <div className= {` timetable-day timetable-wed ${today.getDay() === 3 && thisMonday.toDateString()===displayMonday.toDateString() ? "timetable-today" : ""} `} >
+                        {/* <div className= {` timetable-day timetable-tue ${today.getDay() === 2 && thisMonday===displayMonday ? "timetable-today" : ""} `} >
+                             {tuesdayTimetable}
+                        </div> */}
+                        <div className= {` timetable-day timetable-wed ${today.getDay() === 3 && thisMonday===displayMonday ? "timetable-today" : ""} `} >
                              {wednesdayTimetable}
                         </div>
-                        <div className= {` timetable-day timetable-thurs ${today.getDay() === 4 && thisMonday.toDateString()===displayMonday.toDateString() ? "timetable-today" : ""} `} >
+                        <div className= {` timetable-day timetable-thurs ${today.getDay() === 4 && thisMonday===displayMonday ? "timetable-today" : ""} `} >
                              {thursdayTimetable}
                         </div>
-                        <div className= {` timetable-day timetable-fri ${today.getDay() === 5 && thisMonday.toDateString()===displayMonday.toDateString() ? "timetable-today" : ""} `} >
+                        <div className= {` timetable-day timetable-fri ${today.getDay() === 5 && thisMonday===displayMonday ? "timetable-today" : ""} `} >
                              {fridayTimetable}
                         </div>
                           

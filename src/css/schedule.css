@@ -1,13 +1,19 @@
 #schedule-page {
-    margin: 100px 70px 0;
-    height: 70vh;
+    margin: 100px 120px 20px;
+    height: 65vh;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-bottom: 60px;
     background-color: var(--darkpurple);
     color: var(--beige);
-    font-size: .9rem;
+    font-size: .8rem;
+    border-radius: 10px;
 }
 
 #schedule-wrapper {
+    
     display: grid;
+    padding-top: 40px;
     height: 100%;
     grid-template-columns: 5% 18% 18% 18% 18% 18% 5%;
     grid-template-rows: 10% repeat(7,15%);
@@ -18,7 +24,15 @@
         "schedule-times-10 timetable timetable timetable timetable timetable xx"
         "schedule-times-11 timetable timetable timetable timetable timetable xx"
         "schedule-times-12 timetable timetable timetable timetable timetable xx"
-        "schedule-times-13 timetable timetable timetable timetable timetable xx"
+        "schedule-times-13 timetable timetable timetable timetable timetable illustration"
+}
+
+.sch-illustration {
+    grid-area: illustration;
+    height: 80px;
+    width: 80px;
+    background-size: contain;
+    background-image: url("../assets/Images/schedule/illustration-run.png");
 }
 
 .schedule-arrows {
@@ -31,28 +45,43 @@
     padding: 0 3px;
 }
 
-.last-week {
-    /* background-image: url("../assets/Images/schedule/arrow-left.png"); */
-    height: 50px;
-    width: 50px;
-}
+
 
 .schedule-blank {
-    border-bottom: 1px solid black;
-    border-right: 1px solid black;
+    border-bottom: 1px solid var(--beige);
+    border-right: 1px solid var(--beige);
 }
 
 .schedule-times {
     justify-self: end;
     padding-right: 5px;
-    border-right: 1px solid black;
+    border-right: 1px solid var(--beige);
 
 }
 
 .schedule-date {
+    display: grid;
+    justify-content: center;
+    justify-items: center;
     text-align: center;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--beige);
     align-self: end;
+    font-weight: bold;
+    padding: 20px;
+    height: 40px;
+}
+
+.schedule-title {
+    background-color: var(--darkpurple);
+    padding: 6px;
+    margin-bottom: 5px;
+    width: 100%;
+    z-index: 99;
+    border-radius: 40px 40px 20px 20px;
+}
+
+.schedule-title span{
+    display: block;
 }
 
 .mon-date {
@@ -118,31 +147,123 @@
     .schedule-times, .schedule-date {
         font-size: small;
     }
+
+    #schedule-page {
+        margin: 100px 5px 0;
+        height: 70vh;
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: .7em;
+    }
+
+    .timetable-item {
+        
+        padding: 0 0 0 4%;
+        margin: 2px
+    }
+
 }
 
 .timetable-item {
-    background-color: seashell;
+
+
+    background-color: var(--beige);
     color: #2C1320;
-    border-radius: 5%;
+    border-radius: 5px;
     padding: 0 0 0 4%;
     margin: 5px 15px;
 }
 
-.timetable-item p {
-    font-size: .7em;
-    line-height: .9;
+.sch-test-wrapper {
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    color: black;
+    width:35px;
+    height:35px;
+    border-radius: 50px;
+    background-color: var(--red);
+    margin-right: 20px;
 }
 
+
 .timetable-item-wrapper {
-    border-left: 4px solid green;
+    display:grid;
+    grid-template-columns: 70% 30%;
+    grid-template-rows: 33% 33% 33%;
+    align-items: center;
+    border-left: 4px solid darkgray;
+    margin-top:10px;
     padding-left: 4%;
+
+}
+
+.sch-time, .sch-location {
+    font-size: .9em;
+}
+
+.timetable-today-top {
+    border-radius: 10px 10px 0 0 ;
+    margin: 0 7px;
+    background-color: var(--red);
 }
 
 .timetable-today {
-    background-color: crimson;
+    border-radius: 0 0 10px 10px;
+    margin:0 7px 0 7px;
+    background-color: var(--red);
 }
 
 .timetable-day {
     display: grid;
     grid-template-rows: repeat(6, 16.6%);
+}
+
+.sch-maths {
+    border-left: 4px solid #EE88F0;
+}
+
+.sch-english {
+    border-left: 4px solid #88F0EA;
+}
+
+.sch-geography {
+    border-left: 4px solid #D56919;
+}
+
+.sch-biology {
+    border-left: 4px solid #62C554;
+}
+
+.sch-chemistry {
+    border-left: 4px solid #504B4B;
+}
+
+.sch-literature {
+    border-left: 4px solid #FFB61D;
+}
+
+.sch-spanish {
+    border-left: 4px solid #E87373;
+}
+
+.sch-pe {
+    border-left: 4px solid #421EB7;
+}
+
+.sch-history {
+    border-left: 4px solid yellowgreen;
+}
+
+.location img {
+    width: 10px;
+    margin-right: 5px;
+}
+
+.show-test {
+    display: grid;
+}
+
+.hide-test {
+    display:none;
 }
