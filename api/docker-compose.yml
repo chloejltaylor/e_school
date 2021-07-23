@@ -1,0 +1,50 @@
+version: "3.2"
+services:
+  e_school_api:
+    build:
+      context: .
+    image: amakundu/nodejs-mysql-app
+    networks:
+      - frontend
+      - backend
+    env_file: .env
+    environment:
+      - MYSQL_HOST=e-school-db
+      - MYSQL_USER=test
+      - MYSQL_PASS=user
+      - MYSQL_DB=eschool
+    volumes:
+      - ./:/usr/src/app
+    ports:
+      - "2001:3000"
+    container_name: e-school-api
+  e_school_db:
+    image: mysql:5.7
+    networks:
+      - backend
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=test
+      - MYSQL_PASSWORD=user
+      - MYSQL_DATABASE=eschool
+    container_name: e-school-db
+    volumes:
+      - ./dump:/docker-entrypoint-initdb.d
+      - /var/lib/mysql
+  e_school_phpmyadmin:
+    image: phpmyadmin/phpmyadmin:4.7
+    depends_on:
+      - e_school_db
+    networks:
+      - backend
+    ports:
+      - "2002:80"
+    environment:
+      - PMA_HOST=e-school-db
+      - PMA_PORT=3306
+    volumes:
+      - /sessions
+    container_name: e-school-phpmyadmin
+networks:
+  frontend:
+  backend:

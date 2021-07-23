@@ -1,0 +1,18 @@
+version: '3'
+services:
+  e-school-ui:
+    image:
+      "node:10"
+    working_dir:
+      "/usr/src/app"
+    ports:
+      - "2000:3000"
+    container_name: e-school-ui
+    networks:
+      - default
+    stdin_open: true
+    volumes:
+      - .:/usr/src/app
+    command: npm run start
+    environment:
+      - NODE_ENV="development"
