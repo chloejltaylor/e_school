@@ -1,0 +1,58 @@
+#library-page {
+        margin: 100px 120px 20px;
+        background-color: var(--darkpurple);
+        color: var(--beige);
+        font-size: .8rem;
+        border-radius: 10px;
+        text-align: left;
+}
+#library-header {
+        border-bottom: 10px solid var(--beige);
+        padding-right: 121px;
+}
+#library-books {
+        border-bottom: 2px solid var(--beige);
+}
+#library-videos {
+        border-bottom: 2px solid var(--beige);
+}
+#library-footer {
+
+}
+#library-header,
+#library-books,
+#library-videos,
+#library-footer {
+    padding-left: 121px;
+ }
+#library-books h2,
+#library-videos h2,
+#library-footer h2 {
+    font-size: 1.125rem;
+    margin-top: 9px;
+    margin-bottom: 26px;
+}
+
+.header-wrapper {
+    display: flex;
+    flex-direction: row;
+
+}
+.header-wrapper .buttons {
+}
+.header-wrapper .search {
+
+}
+.primary-button,
+.primary-button:hover {
+    height: 40px;
+    width: 201px;
+    font-size: 14px;
+    background-color: var(--beige);
+    color: var(--darkpurple);
+    text-align: left;
+    font-family: 'Gothic';
+    border: 0 none;
+    box-shadow: rgba(253, 240, 213, 0.25) 0px 4px 4px 0px;
+    margin-right: 8px;
+}
