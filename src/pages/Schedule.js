@@ -9,9 +9,9 @@ function Schedule() {
 
 
    // initialise today's daye
-    let today = new Date(2021, 6, 22)
+    let today = new Date(2021, 8, 7)
     // initialise the Monday that starts this week
-    const thisMonday = new Date()
+    const thisMonday = new Date(2021, 8, 6)
     // 0=sunday to 6=saturday
     const todayIndex=today.getDay()
 
