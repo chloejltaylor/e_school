@@ -6,7 +6,7 @@
     padding-bottom: 60px;
     background-color: var(--darkpurple);
     color: var(--beige);
-    font-size: .8rem;
+    font-size: 12px;
     border-radius: 10px;
 }
 
@@ -153,7 +153,7 @@
         height: 70vh;
         padding-left: 10px;
         padding-right: 10px;
-        font-size: .7em;
+        font-size: 10px;
     }
 
     .timetable-item {
@@ -193,13 +193,13 @@
     grid-template-rows: 33% 33% 33%;
     align-items: center;
     border-left: 4px solid darkgray;
-    margin-top:10px;
+    margin-top:5px;
     padding-left: 4%;
 
 }
 
 .sch-time, .sch-location {
-    font-size: .9em;
+    font-size: 12px;
 }
 
 .timetable-today-top {
