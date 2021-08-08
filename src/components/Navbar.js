@@ -1,5 +1,8 @@
 import React from 'react'
 import {Link, useParams } from 'react-router-dom'
+import Logo from '../assets/Images/common/logo.svg'
+import ProfilePicture from '../assets/Images/common/profile-picture.png'
+import Search from '../assets/Images/common/search.svg'
 
 function Navbar () {
 
@@ -26,7 +29,21 @@ function Navbar () {
         return (
       <div className="App">
   
-          <div className="nav-header">Welcome, Erik</div>
+          <div className="nav-header">
+              <div className="nav-header-wrapper">
+                <div className="logo">
+                  <img src={Logo}/>
+                </div>
+                <div className="welcome">Hello Erik, it's good to see you again!</div>
+                <div className="search">
+                  <img src={Search}/>
+                  <input type="text" placeholder="Search"/>
+                </div>
+                <div className="profile-picture">
+                   <img src={ProfilePicture}/>
+                </div>
+              </div>
+          </div>
   
             <div id="navbar">
 
