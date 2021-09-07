@@ -7,6 +7,7 @@ import Schedule from './pages/Schedule'
 import SignUp from './pages/SignUp'
 import Navbar from './components/Navbar'
 import NotFound from './pages/NotFound'
+import Subjects from './pages/Subjects'
 
 function Routes() {
     return(
@@ -27,6 +28,7 @@ function Routes() {
                 <div>
                   <Route exact path='/:page' component={Navbar} />
                   <Route exact path='/library'component={Library} />
+                  <Route exact path='/subjects' component={Subjects} />
                   <Route exact path='/schedule' component={Schedule} />
                 </div>
 

@@ -5,7 +5,10 @@ main {
     margin-top: 200px;
 }
 .nav-header {
-
+    background-color: var(--darkpurple);
+    color: white;
+    text-align: center;
+    padding: 10px;
 }
 .nav-header-wrapper {
     width: 100%;
@@ -54,91 +57,68 @@ main {
 }
 
 #navbar {
-
     width: 100%;
-    height: 110px;
+    padding: 24px 0;
 }
-
-
-.nav-item {
-
-    background-color: var(--beige);
-    border: 1px solid var(--red);
-    padding: 10px;
-    font-size: small;
-}
-
-.nav-item-active {
-
-    background-color: var(--red);
-    border: 1px solid var(--red);
-    padding: 10px;
-    font-size: small;
-}
-
-
-/* LAYOUT AND RESPONSIVENESS  */
-
-.nav-header {
-    background-color: var(--darkpurple);
-    color: white;
-    text-align: center;
-    padding: 10px;
-}
-
-#navbar {
-    position: fixed;
-    display: grid;
-    align-items: center;
-    justify-content: center;
-    justify-items: center;
-}
-
-
 .nav-list {
-    display: grid;
-    position: static;
-    top: 0;
-    left:0;
-    width: 95vw;
-    margin-top: 0;
-    grid-template-columns: repeat(6,16%);
-    list-style: none;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    gap: 13px;
     padding: 0;
-    justify-items: center;
-    justify-content: center;
+}
+.nav-item {
+    display: flex;
+    width: calc(100% / 6 - 12px);
+    transition: all 0.3s ease-in-out;
+
+}
+.nav-item a {
+    display: flex;
+    flex-grow: 1;
+    background-color: var(--beige);
+    color: var(--darkpurple);
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px 0px #2C132040;
+    text-decoration: none;
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 16px;
     align-items: center;
-    grid-auto-rows: 50px;
-}
-
-
-/* tablets and computers */
-
-@media screen and (min-width: 678px) {
-
-
-
-    .nav-link {
-        font-size: large;
-    }
-
-    .nav-item {
-        padding: 30px;
-        font-size: large;
-    }
+    padding: 13px;
+    transition: all 0.3s ease-in-out;
 
 }
-
-.main-page {
-    text-align: center;
-    margin-top: 200px;
+.nav-item a span {
+    flex-grow: 1;
 }
+.nav-item a img {
+    height: 30px;
+    
+}
+.nav-item-active {
+    display: flex;
+    flex-grow: 1;
+    transition: all 0.3s ease-in-out;
 
-.nav-link-active {
-    background-color: red;
-}  
-
-.nav-link-inactive {
-    background-color: pink;
-}  
-
+}
+.nav-item-active a {
+    background-color: var(--darkpurple);
+    color: var(--beige);
+    display: flex;
+    flex-grow: 1;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px 0px #2C132040;
+    text-decoration: none;
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 20px;
+    padding: 13px;
+    transition: all 0.3s ease-in-out;
+}
+.nav-item-active a span {
+    width: 60%;
+}
+.nav-item-active a img {
+    height: 30px;
+}
