@@ -1,7 +1,8 @@
 import React, { useState, useEffect} from 'react'
 import TimetableSlot from '../components/schedule/TimetableSlot'
 import '../css/schedule.css'
-import timetableData from '../data/timetableDataLarge'
+// import timetableData from '../data/timetableData'
+import timetableData from '../data/timetableDataAutumn2021'
 import arrowLeft from '../assets/Images/schedule/arrow-left.svg'
 import arrowRight from '../assets/Images/schedule/arrow-right.svg'
 
@@ -9,9 +10,9 @@ function Schedule() {
 
 
    // initialise today's daye
-    let today = new Date(2021, 8, 7)
+    let today = new Date(2022, 8, 8)
     // initialise the Monday that starts this week
-    const thisMonday = new Date(2021, 8, 6)
+    const thisMonday = new Date(2022, 8, 5)
     // 0=sunday to 6=saturday
     const todayIndex=today.getDay()
 
@@ -47,6 +48,11 @@ function Schedule() {
         const monthName = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"]
         const month = monthName[date]
         return month
+    }
+
+    //display calendar function
+    function DisplayCalendar(){
+        console.log("calendar function")
     }
 
     //arrow function
@@ -127,7 +133,10 @@ function Schedule() {
 
     return (
         <div id="schedule-page">
+           <div id="schedule-calendar">Calendar will go here</div>
+    
            <div id="schedule-wrapper">
+                        <div onClick={DisplayCalendar} className="calendar"></div>
                         <div className="schedule-blank"></div>
                         <div className="schedule-arrows">
                             <span onClick={HandleLeftArrow} className="schedule-arrow last-week"><img src={arrowLeft}/></span>
@@ -210,7 +219,13 @@ function Schedule() {
 
 
                     </div>
-                    <span className="sch-illustration"></span>
+
+                    <span className="today-icon">
+                        <p className="date-icon-text">{`${today.getFullYear()}.${today.getMonth()+1}.${today.getDate()}`}</p>
+                        <span className="sch-illustration"></span>
+                    </span>
+
+
                 </div>
 
                 

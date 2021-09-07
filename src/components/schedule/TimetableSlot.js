@@ -10,6 +10,9 @@ function TimetableSlot(props) {
         ${
             props.timetableData.subject==="Mathematics" ? "sch-maths" 
             : props.timetableData.subject==="Geography" ? "sch-geography"
+            : props.timetableData.subject==="Literature" ? "sch-literature"
+            : props.timetableData.subject==="Spanish" ? "sch-spanish"
+            : props.timetableData.subject==="Physical Activity" ? "sch-pe"
             : props.timetableData.subject==="History" ? "sch-history"
             : props.timetableData.subject==="English" ? "sch-english"
             : props.timetableData.subject==="Biology" ? "sch-biology"
