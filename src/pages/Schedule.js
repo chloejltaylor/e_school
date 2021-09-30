@@ -1,232 +1,57 @@
-import React, { useState, useEffect} from 'react'
-import TimetableSlot from '../components/schedule/TimetableSlot'
+import React, { useState} from 'react'
+
 import '../css/schedule.css'
-// import timetableData from '../data/timetableData'
-import timetableData from '../data/timetableDataAutumn2021'
-import arrowLeft from '../assets/Images/schedule/arrow-left.svg'
-import arrowRight from '../assets/Images/schedule/arrow-right.svg'
+import Timetable from '../components/schedule/Timetable'
+import Calendar from "../components/schedule/Calendar"
 
 function Schedule() {
 
-
-   // initialise today's daye
-    let today = new Date(2022, 8, 8)
-    // initialise the Monday that starts this week
-    const thisMonday = new Date(2022, 8, 5)
-    // 0=sunday to 6=saturday
-    const todayIndex=today.getDay()
-
-    //set this Monday
-    for(let i=0; i<7; i++){
-        if(todayIndex===i+1) {
-            thisMonday.setDate(today.getDate()-i)
-        } else if(todayIndex===0){
-            thisMonday.setDate(today.getDate()-6)
-        }
-    }
-
-    // const displayMonday = thisMonday
-
-    const [displayMonday, setDisplayMonday]= useState(thisMonday)
-
-    // set the display
-    const weekdays =[]
-    for(let i=0; i<5; i++){
-        weekdays[i] = new Date(displayMonday)
-        weekdays[i].setDate(weekdays[i].getDate()+i)
-    }
-    
-   
-    const days = []
-    const months = []
-    for(let i=0; i<5; i++){
-         days[i] =weekdays[i].getDate()
-         months[i] = findMonth( weekdays[i].getMonth() )
-    }
-        
-    function findMonth(date){
-        const monthName = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"]
-        const month = monthName[date]
-        return month
-    }
-
     //display calendar function
-    function DisplayCalendar(){
-        console.log("calendar function")
-    }
+    
+    const [calendar, setCalendar] = useState (null)
+    const [calendarShowing, setCalendarShowing] = useState(false)
 
-    //arrow function
-    const [countWeek, setCountWeek] = useState(0);
-    function HandleRightArrow(){
-        setCountWeek(countWeek+1)
-        displayMonday.setDate(displayMonday.getDate()+7)
+    const [timetable, setTimetable] = useState (<Timetable/>)
 
-    }
 
-    function HandleLeftArrow(){
-        setCountWeek(countWeek-1)
-        displayMonday.setDate(displayMonday.getDate()-7)
-
-    }
-
-    const mondayTimetable = timetableData.map(sortMondayLessons)
-    const tuesdayTimetable = timetableData.map(sortTuesdayLessons)
-    const wednesdayTimetable = timetableData.map(sortWednesdayLessons)
-    const thursdayTimetable = timetableData.map(sortThursdayLessons)
-    const fridayTimetable = timetableData.map(sortFridayLessons)
-  
-
-    // filter the data to only select the lessons for the correct day
-
-    function sortMondayLessons(lesson){
-        if (lesson.date.getDay()===1
-        && lesson.weekbeginning.getDate() === displayMonday.getDate() 
-        && lesson.weekbeginning.getMonth() === displayMonday.getMonth() 
-        && lesson.weekbeginning.getFullYear() === displayMonday.getFullYear()
-        )
+function ToggleCalendarOn(){
+        if(calendarShowing===false)
         {
-          return <TimetableSlot timetableData={lesson} time2="time" key={lesson.id} />
-        }
+         setCalendar(<Calendar/>)
+         setTimetable(<div className="dim"><Timetable/></div>)
+         setCalendarShowing(true)
+         }
+        else{
+         setCalendar(null)
+         setCalendarShowing(false)
+         }
     }
 
 
-    function sortTuesdayLessons(lesson){
-        if (lesson.date.getDay()===2
-        && lesson.weekbeginning.getDate() === displayMonday.getDate() 
-        && lesson.weekbeginning.getMonth() === displayMonday.getMonth() 
-        && lesson.weekbeginning.getFullYear() === displayMonday.getFullYear())
-        {
-          return <TimetableSlot timetableData={lesson} time2="time" key={lesson.id} />
-        }
-    }
+   function ToggleCalendarOff(){
+     setCalendar(null)
+     setCalendarShowing(false)
+     setTimetable(<Timetable/>)
+     
 
-    function sortWednesdayLessons(lesson){
-        if (lesson.date.getDay()===3
-        && lesson.weekbeginning.getDate() === displayMonday.getDate() 
-        && lesson.weekbeginning.getMonth() === displayMonday.getMonth() 
-        && lesson.weekbeginning.getFullYear() === displayMonday.getFullYear())
-        {
-          return <TimetableSlot timetableData={lesson} time2="time" key={lesson.id} />
-        }
-    }
-
-    function sortThursdayLessons(lesson){
-        if (lesson.date.getDay()===4
-        && lesson.weekbeginning.getDate() === displayMonday.getDate() 
-        && lesson.weekbeginning.getMonth() === displayMonday.getMonth() 
-        && lesson.weekbeginning.getFullYear() === displayMonday.getFullYear())
-        {
-          return <TimetableSlot timetableData={lesson} time2="time"  key={lesson.id} />
-        }
-    }
-
-    function sortFridayLessons(lesson){
-        if (lesson.date.getDay()===5
-        && lesson.weekbeginning.getDate() === displayMonday.getDate() 
-        && lesson.weekbeginning.getMonth() === displayMonday.getMonth() 
-        && lesson.weekbeginning.getFullYear() === displayMonday.getFullYear())
-        {
-          return <TimetableSlot timetableData={lesson} time2="time" key={lesson.id} />
-        }
-    }
+}
 
 
     return (
         <div id="schedule-page">
-           <div id="schedule-calendar">Calendar will go here</div>
-    
-           <div id="schedule-wrapper">
-                        <div onClick={DisplayCalendar} className="calendar"></div>
-                        <div className="schedule-blank"></div>
-                        <div className="schedule-arrows">
-                            <span onClick={HandleLeftArrow} className="schedule-arrow last-week"><img src={arrowLeft}/></span>
-                            <span onClick={HandleRightArrow} className="schedule-arrow next-week"><img src={arrowRight}/></span>
-                    
-                        </div>
-                        <div className="schedule-times schedule-times-8">8:00</div>
-                        <div className="schedule-times schedule-times-9">9:00</div>
-                        <div className="schedule-times schedule-times-10">10:00</div>
-                        <div className="schedule-times schedule-times-11">11:00</div>
-                        <div className="schedule-times schedule-times-12">12:00</div>
-                        <div className="schedule-times schedule-times-13">13:00</div>
+            
+            <div
+             onClick={ToggleCalendarOn} 
+             className="calendar">
+             </div>
+            {calendar}
+        
+            <div onClick={ToggleCalendarOff}>
+                    {timetable}
 
 
+            </div>
 
-                        
-                        <div 
-                        className={`mon-date schedule-date ${today.getDay()=== 1 && thisMonday.toDateString()===displayMonday.toDateString() ? "timetable-today-top" : ""}`}
-                        >
-                            <div className="schedule-title">
-                                <span>MON</span>
-                                <span>{days[0]} {months[0]}</span>
-                            </div>
-                                
-                         </div>
-                         <div
-                          className={`tue-date schedule-date ${today.getDay()=== 2 && thisMonday.toDateString()===displayMonday.toDateString() ? "timetable-today-top" : ""}`}
-                          >
-                            <div className="schedule-title">
-                                <span>TUE</span>
-                                <span>{days[1]} {months[1]}</span>
-                            </div>
-                         </div>
-                         <div
-                          className={`wed-date schedule-date ${today.getDay()=== 3 && thisMonday.toDateString()===displayMonday.toDateString() ? "timetable-today-top" : ""}`}
-                          >
-                            <div className="schedule-title">
-                                <span>WED</span>
-                                <span>{days[2]} {months[3]}</span>
-                            </div>
-                        </div>
-                        <div 
-                        className={`thurs-date schedule-date ${today.getDay()=== 4 && thisMonday.toDateString()===displayMonday.toDateString() ? "timetable-today-top" : ""}`}
-                        >
-                            <div className="schedule-title">
-                                <span>THU</span>
-                                <span>{days[3]} {months[3]}</span>
-                            </div>
-                        </div>
-                        <div 
-                        className={`fri-date schedule-date ${today.getDay()=== 5  && thisMonday.toDateString()===displayMonday.toDateString() ? "timetable-today-top" : ""}`}
-                        >
-                            <div className="schedule-title">
-                                <span>FRI</span>
-                                <span>{days[4]} {months[4]}</span>
-                            </div>
-                        </div>
-
-                        <div id="timetable-wrapper">
-                         <div className= {` timetable-day timetable-mon ${today.getDay() === 1 && thisMonday.toDateString()===displayMonday.toDateString() ? "timetable-today" : ""} `} >
-                             {mondayTimetable}
-                        </div>
-
-                        <div className= {` timetable-day timetable-tue ${today.getDay() === 2 && thisMonday.toDateString()===displayMonday.toDateString() ? "timetable-today" : ""} `} >
-                             {tuesdayTimetable}
-                        </div>
-
-
-
-                        <div className= {` timetable-day timetable-wed ${today.getDay() === 3 && thisMonday.toDateString()===displayMonday.toDateString() ? "timetable-today" : ""} `} >
-                             {wednesdayTimetable}
-                        </div>
-                        <div className= {` timetable-day timetable-thurs ${today.getDay() === 4 && thisMonday.toDateString()===displayMonday.toDateString() ? "timetable-today" : ""} `} >
-                             {thursdayTimetable}
-                        </div>
-                        <div className= {` timetable-day timetable-fri ${today.getDay() === 5 && thisMonday.toDateString()===displayMonday.toDateString() ? "timetable-today" : ""} `} >
-                             {fridayTimetable}
-                        </div>
-                          
-
-
-                    </div>
-
-                    <span className="today-icon">
-                        <p className="date-icon-text">{`${today.getFullYear()}.${today.getMonth()+1}.${today.getDate()}`}</p>
-                        <span className="sch-illustration"></span>
-                    </span>
-
-
-                </div>
 
                 
         </div>
